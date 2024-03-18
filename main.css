@@ -1,0 +1,60 @@
+/* main.css */
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    /* viewport units: vh (viewport height), vw, vmin (smallest between vh & vw) */
+    height: 100vh; /*viewport allows to scale based on screensize
+    automatically scales,
+    uses mobile first philosophy
+    so height of body is set to 100% of screen no matter what the screen is*/
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    display: flex; /* layout in one-dimension vs grid-display 
+    which is for 2d layouts
+    tables are often done with grad layout*/
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  
+  h1 {
+    color: fuchsia;
+    font-size: 3vmin;
+    text-transform: capitalize;
+  }
+ 
+  
+  #board {
+    display: grid; /* 10vmin is width of columns and but 10vmin for rows is the height
+     for rows when we set measure its the height*/
+    grid-template-columns: repeat(2, 10vmin);
+    grid-template-rows: repeat(2, 10vmin);
+    gap: 1vmin;
+    margin-top: 4vmin;
+  }
+  
+  #board > div {
+    border-radius: 10%;
+    border: 0.1vmin solid fuchsia;
+    background-color: fuchsia;
+  }
+  
+  button {
+    margin-top: 4vmin;
+    padding: 2vmin;
+    font-size: 2vmin;
+    border-radius: 4vmin;
+    border: 0.1vmin solid grey;
+    color: grey;
+  }
+  
+  button:hover {
+    color: white;
+    background-color: darkgrey;
+  }
+
