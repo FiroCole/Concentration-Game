@@ -22,10 +22,10 @@
       {img: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYm50MHFmZzd1N2pxajNrbzhrdGNvOWllZGdyc2hyc2dvanBjMjQ5dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT8qBt89baFDqwLIME/giphy.gif", matched:false },
       {img: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnAyMDN0ZXBheXBsMzk4MTc2djRqM3Y4a3Y4OW1uNnRkazZ5bDgzcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o72EU9yuLyplAjD8I/giphy.gif", matched:false },
       {img: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2Q5dWx3NGpkdjMzcDFpaGJmNmZ2ZWF4ZGZ6ejJrNW44dnA4Nnd3eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT8qBpPuxa4VT9R2b6/giphy.gif", matched:false },
-      {img: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2Q5dWx3NGpkdjMzcDFpaGJmNmZ2ZWF4ZGZ6ejJrNW44dnA4Nnd3eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT8qBpPuxa4VT9R2b6/giphy.gif", matched:false },
+      {img: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2RkczYwN2tkemVvd2hybzkwMzVqcmU4aDNvNmlhZ2Vlbm1sd3c5diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/27bY3mzyM4d4UrNGo8/giphy.gif", matched:false },
       
           ]
-  const CARD_BACK = "https://giphy.com/embed/E1Y9oysdqAhoc";
+  const CARD_BACK = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2VqcGU3NTA5ZzA5dm9hOXhtNDUyemlkbGNueHQ3eTBoMXN0dDFoaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/E1Y9oysdqAhoc/giphy.gif";
   // 1.2) Game Time Limit: Set a maximum duration of 1 minute for the game to be completed.
   let timeLimit = 60000 //60,000 msecs is one minute
   //******************************************************* */
@@ -40,20 +40,26 @@
   let match;
   // 2.5)Game Win Status: A variable to indicate game status; null for ongoing, 0 for loss, and 1 for win. Winning is defined as finding all matches.
   let win;
-  
+  // 2.6)Ignore clicks: A variable to ignore user clicks before game starts.
+  let ignoreClicks
   
   //let cards
   let cards; //array that holds the card objects  
   
+  //creat counter for number of incorrects
+  let numBad;
+  let numGood;
   //******************************************************* */
   // 3) Cached Elements
   // 3.1)Card Elements: Store references to the four elements on the page that represent the card positions.
-  let boardEl = document.getElementById("board");
+  let boardEl = document.getElementById("board").addEventListener("click", handleChoice)
   // 3.2)Play Again Button: Store the reference to the "Play Again" button for resetting the game.
   let playBtnEl = document.querySelector("button");
   // 3.3)Timer Display: Store the reference to the element that will display the remaining time.
   // !!!! come back to this latter
-  
+  const msgEl = document.getElementById("bad")
+  const msgElgood = document.getElementById("good")
+
   //******************************************************* */
   // 4) Initialize Game
   // 4.1) Shuffle and Setup Board: Randomly arrange the card identifiers within the board array to start each game with a different configuration. *** I may or may not randomize the cards, depending on the difficulty
@@ -64,6 +70,9 @@
   function init(){
     cards = getShuffledCards();
     firstFlip = null;
+    ignoreClicks = false;
+    numBad = 0;
+    numGood = 0;
     render();
   }
   
@@ -71,7 +80,7 @@
     let tempCards =[];
     let cards =[];
     for(let card of SOURCE_CARDS) {
-      tempCards.push(card,card);
+      tempCards.push({...card},{...card}); //to make independent copies of each card so that they render seperately
      }
   while(tempCards.length) {
     let rndIdx = Math.floor(Math.random() * tempCards.length);
@@ -85,11 +94,35 @@
   
   function render() {
     cards.forEach(function(card,idx){
-      idx.toString;
+      //idx.toString;
       const imgEl = document.getElementById(idx);
-      imgEl.src = card.img;
-      console.log(imgEl)
+      let src = (card.matched || card ===firstFlip) ? card.img : CARD_BACK ;
+      imgEl.src = src;
+msgEl.innerHTML= `Incorrect Guesses: ${numBad}`;
+msgElgood.innerHTML= `Correct Guesses: ${numGood}`;
+      
     });
+  }
+//update all inpacted state, then call render()
+  function handleChoice(evt) {
+    const cardIdx = parseInt(evt.target.id);
+        if (isNaN(cardIdx) || win || ignoreClicks) return;
+    const card = cards[cardIdx];
+    if (firstFlip) {
+      if (firstFlip.img === card.img) {
+        firstFlip.matched = card.matched = true;
+        numGood++
+        firstFlip = null;
+      } else {
+        firstFlip = card
+        numBad++
+      }
+    } else {
+      firstFlip = card;
+    }
+    console.log(card)
+    console.log(cardIdx)
+    render()
   }
   //******************************************************* */
   // 5) Implement Event Listeners
