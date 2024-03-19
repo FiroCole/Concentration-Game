@@ -15,6 +15,12 @@
 // 1) Define Game Constants
 // 1.1)Fruit Pairs: Associate each fruit with a unique identifier.
 let pairs =[0,1]
+const SOURCE_CARDS = [
+    {img: "https://giphy.com/embed/l0HFjO0S9m8Cy7WJa", matched:false},
+    {img: "https://giphy.com/embed/3o72F4nTnhd0fxsVhK", matched:false },
+]
+
+const CARD_BACK = "https://giphy.com/embed/E1Y9oysdqAhoc";
 // Guava is 0, and Passionfruit is 1.
 // 1.2) Game Time Limit: Set a maximum duration of 1 minute for the game to be completed.
 let timeLimit = 60000 //60,000 msecs is one minute
@@ -31,19 +37,26 @@ let match;
 // 2.5)Game Win Status: A variable to indicate game status; null for ongoing, 0 for loss, and 1 for win. Winning is defined as finding all matches.
 let win;
 
+
 //******************************************************* */
 // 3) Cached Elements
 // 3.1)Card Elements: Store references to the four elements on the page that represent the card positions.
+let boardEl = document.getElementById("board");
 // 3.2)Play Again Button: Store the reference to the "Play Again" button for resetting the game.
+let playBtnEl = document.querySelector("button");
 // 3.3)Timer Display: Store the reference to the element that will display the remaining time.
-
+// !!!! come back to this latter
 
 //******************************************************* */
 // 4) Initialize Game
 // 4.1) Shuffle and Setup Board: Randomly arrange the card identifiers within the board array to start each game with a different configuration. *** I may or may not randomize the cards, depending on the difficulty
 // 4.2) Reset Variables: Set the first flip, second flip, matches count, and win status to their initial values.
 // 4.3) Render Board and Timer: Update the webpage to show the initial state of the game board and set the timer to its starting value.
+init();
 
+function init(){
+
+}
 
 //******************************************************* */
 // 5) Implement Event Listeners
