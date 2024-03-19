@@ -18,8 +18,13 @@
     const SOURCE_CARDS = [
       {img: "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmZkcmoxcGIydzcwMDZ2NTVndTkyMWNkaTUwbTd1eGdzNzB3ZXVyYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0HFjO0S9m8Cy7WJa/giphy.gif", matched:false},
       {img: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHdxbnkxbHFmb3g2cWVjMGRveG5rZmV4YTZpMHRpbXZ3OHY1cXQyayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o72Ffdfgr3lcGniU0/giphy.gif", matched:false },
-  ]
-  
+      {img: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExODNiN2Q4dDY2YzFpODFtcm82b2d0ZzB0NHRmMmRhMmIyYmViaThrMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o72F4nTnhd0fxsVhK/giphy.gif", matched:false },
+      {img: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYm50MHFmZzd1N2pxajNrbzhrdGNvOWllZGdyc2hyc2dvanBjMjQ5dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT8qBt89baFDqwLIME/giphy.gif", matched:false },
+      {img: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnAyMDN0ZXBheXBsMzk4MTc2djRqM3Y4a3Y4OW1uNnRkazZ5bDgzcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o72EU9yuLyplAjD8I/giphy.gif", matched:false },
+      {img: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2Q5dWx3NGpkdjMzcDFpaGJmNmZ2ZWF4ZGZ6ejJrNW44dnA4Nnd3eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT8qBpPuxa4VT9R2b6/giphy.gif", matched:false },
+      {img: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2Q5dWx3NGpkdjMzcDFpaGJmNmZ2ZWF4ZGZ6ejJrNW44dnA4Nnd3eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT8qBpPuxa4VT9R2b6/giphy.gif", matched:false },
+      
+          ]
   const CARD_BACK = "https://giphy.com/embed/E1Y9oysdqAhoc";
   // 1.2) Game Time Limit: Set a maximum duration of 1 minute for the game to be completed.
   let timeLimit = 60000 //60,000 msecs is one minute

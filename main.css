@@ -32,8 +32,8 @@ h1 {
 #board {
   display: grid; /* 10vmin is width of columns and but 10vmin for rows is the height
    for rows when we set measure its the height*/
-  grid-template-columns: repeat(2, 10vmin);
-  grid-template-rows: repeat(2, 10vmin);
+  grid-template-columns: repeat(4, 10vmin);
+  grid-template-rows: repeat(3, 10vmin);
   gap: 10vmin;
   margin-top: 4vmin;
 }
