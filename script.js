@@ -22,7 +22,7 @@
       {img: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYm50MHFmZzd1N2pxajNrbzhrdGNvOWllZGdyc2hyc2dvanBjMjQ5dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT8qBt89baFDqwLIME/giphy.gif", matched:false },
       {img: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnAyMDN0ZXBheXBsMzk4MTc2djRqM3Y4a3Y4OW1uNnRkazZ5bDgzcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o72EU9yuLyplAjD8I/giphy.gif", matched:false },
       {img: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2Q5dWx3NGpkdjMzcDFpaGJmNmZ2ZWF4ZGZ6ejJrNW44dnA4Nnd3eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT8qBpPuxa4VT9R2b6/giphy.gif", matched:false },
-      {img: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2RkczYwN2tkemVvd2hybzkwMzVqcmU4aDNvNmlhZ2Vlbm1sd3c5diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/27bY3mzyM4d4UrNGo8/giphy.gif", matched:false },
+      
       
           ]
   const CARD_BACK = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2VqcGU3NTA5ZzA5dm9hOXhtNDUyemlkbGNueHQ3eTBoMXN0dDFoaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/E1Y9oysdqAhoc/giphy.gif";
@@ -59,6 +59,7 @@
   // !!!! come back to this latter
   const msgEl = document.getElementById("bad")
   const msgElgood = document.getElementById("good")
+  const msgElwin = document.getElementById("win")
 
   //******************************************************* */
   // 4) Initialize Game
@@ -70,9 +71,11 @@
   function init(){
     cards = getShuffledCards();
     firstFlip = null;
+    secondFlip = null;
     ignoreClicks = false;
     numBad = 0;
     numGood = 0;
+    win = null;
     render();
   }
   
@@ -96,15 +99,20 @@
     cards.forEach(function(card,idx){
       //idx.toString;
       const imgEl = document.getElementById(idx);
-      let src = (card.matched || card ===firstFlip) ? card.img : CARD_BACK ;
+      let src = (card.matched || card ===firstFlip || card ===secondFlip) ? card.img : CARD_BACK ;
       imgEl.src = src;
-msgEl.innerHTML= `Incorrect Guesses: ${numBad}`;
-msgElgood.innerHTML= `Correct Guesses: ${numGood}`;
-      
+    msgEl.innerHTML= `Incorrect Guesses: ${numBad}`;
+    msgElgood.innerHTML= `Correct Guesses: ${numGood}`;
+    renderMessage()
     });
+
+    
   }
 //update all inpacted state, then call render()
   function handleChoice(evt) {
+    /*setTimeout(() => {
+  console.log("Delayed for 1 second.");
+}, 1000);*/
     const cardIdx = parseInt(evt.target.id);
         if (isNaN(cardIdx) || win || ignoreClicks) return;
     const card = cards[cardIdx];
@@ -113,16 +121,40 @@ msgElgood.innerHTML= `Correct Guesses: ${numGood}`;
         firstFlip.matched = card.matched = true;
         numGood++
         firstFlip = null;
-      } else {
-        firstFlip = card
-        numBad++
+        ;
+      } 
+      else {
+        //firstFlip = card;
+        secondFlip = card;
+        setTimeout((card) => {
+          firstFlip = null;
+          secondFlip = null;
+        }, 10);
+        numBad++;
+        ;
       }
     } else {
       firstFlip = card;
     }
-    console.log(card)
-    console.log(cardIdx)
-    render()
+    renderMessage();
+    getWinner();
+    render();
+
+    setTimeout(() => {
+      console.log("Game Over");
+    }, 1000);
+  }
+
+  function getWinner() {
+    if (numBad ===2) { win=false}
+   }
+  function renderMessage() {
+    if (numGood===SOURCE_CARDS.length) {
+      msgElwin.innerText = "You won! Congratulations!";
+    } else if (win===false) {
+      msgElwin.innerText = "You lose"
+      return;
+    }
   }
   //******************************************************* */
   // 5) Implement Event Listeners
@@ -145,5 +177,3 @@ msgElgood.innerHTML= `Correct Guesses: ${numGood}`;
   // 7) Handle Game Win or Loss Logic
   // 7.1) Check for Win: After each successful match, check if Matches Count indicates that all pairs have been found. If so, update Game Win Status to 1 and display a congratulatory message.
   // 7.2) Game Timeout: If the time limit is reached before all matches are found, consider the game lost and offer the player an option to play again.
-  
-  
