@@ -77,6 +77,7 @@
     numBad = 0;
     numGood = 0;
     win = null;
+    msgElwin.innerText = "";
     render();
   }
   
@@ -123,6 +124,9 @@
         numGood++
         firstFlip = null;
         msgElwin.innerText = "It's A Match!";
+        setTimeout(() => {
+          msgElwin.innerText = "";
+        }, 3000);
       } 
       else {
         //firstFlip = card;
@@ -133,6 +137,9 @@
         }, 10);
         numBad++;
         msgElwin.innerText = "Wrong Guess!";
+        setTimeout(() => {
+          msgElwin.innerText = "";
+        }, 3000);
       }
     } else {
       firstFlip = card;
@@ -142,12 +149,13 @@
     render();
 
     setTimeout(() => {
+      msgElwin.innerText = "Your Time is Over. You Lost";
       init();
-    }, 1000);
+    }, 50000);
   }
 
   function getWinner() {
-    if (numBad ===2 || win===false) {
+    if (numBad ===4 || win===false) {
       win=false;
       setTimeout(() => {
         init();
