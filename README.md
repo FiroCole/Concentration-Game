@@ -14,7 +14,7 @@
 
   ##### Firo Cole
 
-[![LinkedIn Badge](https://img.shields.io/badge/-@amarpan-blue?style=flat&logo=Linkedin&logoColor=black)](https://www.linkedin.com/in/firocolemd/)
+[![LinkedIn Badge](https://img.shields.io/badge/-@firocolemd-blue?style=flat&logo=Linkedin&logoColor=black)](https://www.linkedin.com/in/firocolemd/)
 
   ## :pencil: Description
 
