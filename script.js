@@ -27,7 +27,7 @@
           ]
   const CARD_BACK = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2VqcGU3NTA5ZzA5dm9hOXhtNDUyemlkbGNueHQ3eTBoMXN0dDFoaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/E1Y9oysdqAhoc/giphy.gif";
   // 1.2) Game Time Limit: Set a maximum duration of 1 minute for the game to be completed.
-  
+ 
   //******************************************************* */
   // 2)Declare State Variables
   // 2.1)Board Array: An array to represent the game board with cards that hide the fruits. Initially, this could contain pairs of identifiers [0, 0, 1, 1] for Guava and Passionfruit.

@@ -26,6 +26,8 @@ h1 {
   color: fuchsia;
   font-size: 7vmin;
   text-transform: capitalize;
+  margin-top: 10vmin;
+  margin-bottom: 0vmin;
 }
 
 
@@ -35,7 +37,8 @@ h1 {
   grid-template-columns: repeat(4, 10vmin);
   grid-template-rows: repeat(3, 10vmin);
   gap: 10vmin;
-  margin-top: 4vmin;
+  margin-top: 1vmin;
+  margin-bottom: 20vmin;
 }
 
 #board > img {
