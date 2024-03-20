@@ -27,7 +27,7 @@
           ]
   const CARD_BACK = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2VqcGU3NTA5ZzA5dm9hOXhtNDUyemlkbGNueHQ3eTBoMXN0dDFoaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/E1Y9oysdqAhoc/giphy.gif";
   // 1.2) Game Time Limit: Set a maximum duration of 1 minute for the game to be completed.
-  let timeLimit = 60000 //60,000 msecs is one minute
+  
   //******************************************************* */
   // 2)Declare State Variables
   // 2.1)Board Array: An array to represent the game board with cards that hide the fruits. Initially, this could contain pairs of identifiers [0, 0, 1, 1] for Guava and Passionfruit.
@@ -36,12 +36,8 @@
   let firstFlip;
   // 2.3)Second Flip: A variable to store the index of the second card flipped.
   let secondFlip;
-  // 2.4)Matches Count: A variable to track the number of successful matches. A match occurs when the first and second flips reveal the same fruit.
-  let match;
   // 2.5)Game Win Status: A variable to indicate game status; null for ongoing, 0 for loss, and 1 for win. Winning is defined as finding all matches.
   let win;
-  // 2.6)Ignore clicks: A variable to ignore user clicks before game starts.
-  let ignoreClicks
   
   //let cards
   let cards; //array that holds the card objects  
@@ -53,8 +49,7 @@
   // 3) Cached Elements
   // 3.1)Card Elements: Store references to the four elements on the page that represent the card positions.
   let boardEl = document.getElementById("board").addEventListener("click", handleChoice)
-  // 3.2)Play Again Button: Store the reference to the "Play Again" button for resetting the game.
-  let playBtnEl = document.querySelector("button");
+
   // 3.3)Timer Display: Store the reference to the element that will display the remaining time.
   // !!!! come back to this latter
   const msgEl = document.getElementById("bad")
