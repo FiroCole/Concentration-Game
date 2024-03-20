@@ -8,17 +8,17 @@
 
  <div id="description" align="center">
 
-  # :cherries: FRUIT CONCENTRATION GAME :cherries:
+  # :lemon: A FRUITY CONCENTRATION GAME 	:kiwi_fruit:
 
   ### [CLICK TO DEMO](https://firocole.github.io/Concentration-Game/)
 
   ##### Firo Cole
 
-  [![LinkedIn Badge](https://img.shields.io/badge/-@firo-cole-blue?style=flat&logo=Linkedin&logoColor=black)](https://www.linkedin.com/in/firocolemd/)
+[![LinkedIn Badge](https://img.shields.io/badge/-@amarpan-blue?style=flat&logo=Linkedin&logoColor=black)](https://www.linkedin.com/in/firocolemd/)
 
   ## :pencil: Description
 
- This project is a fun and interactive concentration game where players match pairs of fruit emojis hidden behind cards. It's a classic game of memory and cognitive skills, enhanced with colorful fruit imagery.
+ This project is a fun and interactive concentration game where players match pairs of fruit emojis hidden behind cards. It's a classic game of memory and cognitive skills, enhanced with colorful fruit imagery. :watermelon:	
 
   </div>
 
