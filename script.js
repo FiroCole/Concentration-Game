@@ -60,6 +60,7 @@
   const msgEl = document.getElementById("bad")
   const msgElgood = document.getElementById("good")
   const msgElwin = document.getElementById("win")
+  const msgElwrong = document.getElementById("win")
 
   //******************************************************* */
   // 4) Initialize Game
@@ -121,7 +122,7 @@
         firstFlip.matched = card.matched = true;
         numGood++
         firstFlip = null;
-        ;
+        msgElwin.innerText = "It's A Match!";
       } 
       else {
         //firstFlip = card;
@@ -131,7 +132,7 @@
           secondFlip = null;
         }, 10);
         numBad++;
-        ;
+        msgElwin.innerText = "Wrong Guess!";
       }
     } else {
       firstFlip = card;
@@ -141,39 +142,31 @@
     render();
 
     setTimeout(() => {
-      console.log("Game Over");
+      init();
     }, 1000);
   }
 
   function getWinner() {
-    if (numBad ===2) { win=false}
-   }
+    if (numBad ===2 || win===false) {
+      win=false;
+      setTimeout(() => {
+        init();
+        return;
+      }, 1000)  
+    }
+    else if (numGood ===SOURCE_CARDS.length) {
+      win=true
+      init();}
+
+  }
+
+
   function renderMessage() {
-    if (numGood===SOURCE_CARDS.length) {
+    if (win===true) {
       msgElwin.innerText = "You won! Congratulations!";
     } else if (win===false) {
       msgElwin.innerText = "You lose"
       return;
-    }
+    } 
   }
-  //******************************************************* */
-  // 5) Implement Event Listeners
-  // 5.1) Card Click Listener: Attach an event listener to each card. When a card is clicked:
-    // Determine the card's index in the board array.
-    // Reveal the fruit by changing the card's appearance based on the index.
-    // If it's the first card flipped, store its index in First Flip. If it's the second, store its index in Second Flip.
-    // If two cards are flipped, check for a match. If they match, increase the Matches Count. If they don't match, flip them back over after a brief delay.
-    // Check if Matches Count equals 2 (all pairs found) to determine a win. Update the Game Win Status accordingly and display a winning message.
-  // 5.2) Play Again Button Listener: When the "Play Again" button is clicked, reset all state variables and shuffle the board for a new game.
   
-  
-  //******************************************************* */
-  // 6) Handle Timer Logic
-  // 6.1) Start Timer: Begin the countdown when the first card is flipped.
-  // 6.2) End Game On Timeout: If the timer reaches 0 before all matches are found, set the Game Win Status to 0 (loss) and prompt the player to try again.
-  
-  
-  //******************************************************* */
-  // 7) Handle Game Win or Loss Logic
-  // 7.1) Check for Win: After each successful match, check if Matches Count indicates that all pairs have been found. If so, update Game Win Status to 1 and display a congratulatory message.
-  // 7.2) Game Timeout: If the time limit is reached before all matches are found, consider the game lost and offer the player an option to play again.
