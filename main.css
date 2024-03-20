@@ -6,13 +6,15 @@
 
 body {
   /* viewport units: vh (viewport height), vw, vmin (smallest between vh & vw) */
-  height: 100vh; /*viewport allows to scale based on screensize
+  height: 100vh;
+  /*viewport allows to scale based on screensize
   automatically scales,
   uses mobile first philosophy
   so height of body is set to 100% of screen no matter what the screen is*/
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-  display: flex; /* layout in one-dimension vs grid-display 
+  display: flex;
+  /* layout in one-dimension vs grid-display 
   which is for 2d layouts
   tables are often done with grad layout*/
   flex-direction: column;
@@ -32,7 +34,8 @@ h1 {
 
 
 #board {
-  display: grid; /* 10vmin is width of columns and but 10vmin for rows is the height
+  display: grid;
+  /* 10vmin is width of columns and but 10vmin for rows is the height
    for rows when we set measure its the height*/
   grid-template-columns: repeat(4, 10vmin);
   grid-template-rows: repeat(3, 10vmin);
@@ -41,10 +44,8 @@ h1 {
   margin-bottom: 20vmin;
 }
 
-#board > img {
+#board>img {
   border-radius: 10%;
   border: 0.1vmin solid fuchsia;
   background-color: fuchsia;
 }
-
-
