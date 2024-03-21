@@ -99,8 +99,9 @@ function render() {
 
 function handleChoice(evt) {
   const cardIdx = parseInt(evt.target.id);
-  if (isNaN(cardIdx) || win) return;
+  if (isNaN(cardIdx) || win || cards[cardIdx].matched) return; // to prevent erroneous clicks, ensure that the game isn't won yet and prevent gaining points when clicking on already matched cards
   const card = cards[cardIdx];
+  if (card.matched || card === firstFlip) return; // to prevent double-clicks from resulting in points
   if (firstFlip) {
     if (firstFlip.img === card.img) {
       firstFlip.matched = card.matched = true;
