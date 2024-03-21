@@ -20,18 +20,10 @@
 
 ## :camera_flash: Screenshots 
 
-|    Description     | Screenshot |
-| :----------------: | ---------- |
-| <h3>Feed Page</h3> | <img       |
-src="https://live.staticflickr.com/65535/53600776543_6b3210fa7d_z.jpg"
-width="700" 
-
-
-/> |
-| <h3 align="center">Display when Cards are flipped</h3> | <img
-src="https://live.staticflickr.com/65535/53600776558_05a4e1671e_z.jpg"
-width="700"
-/> |
+|    Description        | Screenshot                                                                                |
+| :----------------:    | ----------                                                                                |
+| <h3>Display Page</h3> | <img src="https://live.staticflickr.com/6553553600776543_6b3210fa7d_z.jpg" width="700" /> |
+| <h3 align="center">Display when Cards are flipped</h3> | <img src="https://live.staticflickr.com/65535/53600776558_05a4e1671e_z.jpg" width="700" />  //
 
 
 ## :computer: Technologies Used
@@ -64,8 +56,7 @@ A screenshot of your app's landing page and any other screenshots of interest.
 <details open>
 <summary> Click here to enjoy the Fruit Concentration Game!</summary>
 <a href="https://firocole.github.io/Concentration-Game/"
-> https://firocole.github.io/Concentration-Game/ </a
->
+> https://firocole.github.io/Concentration-Game/ </a>
 </details>
 
 ## :satellite: Upcoming Features
