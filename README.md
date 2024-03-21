@@ -22,8 +22,8 @@
 
 |    Description        | Screenshot                                                                                |
 | :----------------:    | ----------                                                                                |
-| <h3>Display Page</h3> | <img src="https://live.staticflickr.com/6553553600776543_6b3210fa7d_z.jpg" width="700" /> |
-| <h3 align="center">Display when Cards are flipped</h3> | <img src="https://live.staticflickr.com/65535/53600776558_05a4e1671e_z.jpg" width="700" />  //
+| <h3>Display Page</h3> | <img src="https://live.staticflickr.com/65535/53600776543_6b3210fa7d_z.jpg" width="700" /> |
+| <h3 align="center">Display when Cards are flipped</h3> | <img src="https://live.staticflickr.com/65535/53600776558_05a4e1671e_z.jpg" width="700" />  
 
 
 ## :computer: Technologies Used
