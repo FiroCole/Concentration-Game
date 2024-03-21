@@ -99,7 +99,7 @@ function render() {
 
 function handleChoice(evt) {
   const cardIdx = parseInt(evt.target.id);
-  if (isNaN(cardIdx) || win || ignoreClicks) return;
+  if (isNaN(cardIdx) || win) return;
   const card = cards[cardIdx];
   if (firstFlip) {
     if (firstFlip.img === card.img) {
@@ -113,7 +113,7 @@ function handleChoice(evt) {
     }
     else {
       secondFlip = card;
-      setTimeout((card) => {
+      setTimeout(() => {
         firstFlip = null;
         secondFlip = null;
       }, 10);
