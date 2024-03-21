@@ -28,7 +28,7 @@ let secondFlip;
 let win;
 
 // 2.6) Create array that holds the card objects   
-let cards; 
+let cards;
 
 // 2.7) Create counter for number of incorrect and correct cards
 let numBad;
