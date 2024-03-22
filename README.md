@@ -27,7 +27,6 @@
 
 
 ## :computer: Technologies Used
-A screenshot of your app's landing page and any other screenshots of interest.
 
 ![Node](https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=node.js)
 ![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
