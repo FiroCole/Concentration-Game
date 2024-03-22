@@ -119,7 +119,7 @@ function handleChoice(evt) {
         secondFlip = null;
       }, 10);
       numBad++;
-      msgElwin.innerText = "Wrong Guess!";
+      msgElwin.innerText = "WRONG GUESS!";
       setTimeout(() => {
         msgElwin.innerText = "";
       }, 3000);
@@ -133,7 +133,7 @@ function handleChoice(evt) {
 
   // Game Time Limit: Set a maximum duration of 5 minute for the game to be completed.
   setTimeout(() => {
-    msgElwin.innerText = "Your Time is Over. You Lost";
+    msgElwin.innerText = "YOUR TIME HAD ENDED!";
     init();
   }, 50000);
 }
@@ -155,9 +155,10 @@ function getWinner() {
 
 function renderMessage() {
   if (win === true) {
-    msgElwin.innerText = "You won! Congratulations!";
+    msgElwin.innerText = "YOU'RE A WINNER BABY!";
   } else if (win === false) {
     msgElwin.innerText = "You lose"
     return;
   }
 }
+

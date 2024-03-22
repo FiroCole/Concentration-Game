@@ -4,37 +4,77 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  /* Ensure the container fills the viewport */
+  color: fuchsia;
 }
 
 #anuncio h2 {
-  min-height: 30px;
-  /* Adjust based on your design */
+  min-height: 35px;
+  color: fuchsia;
+  text-decoration: dotted;
 }
-
 
 h1 {
   color: fuchsia;
   font-size: 7vmin;
   text-transform: capitalize;
-  margin-top: 10vmin;
+  margin-top: 1vmin;
   margin-bottom: 0vmin;
-
 }
 
 #board {
   display: grid;
-  /* 10vmin is width of columns and but 10vmin for rows is the height
-   for rows when we set measure its the height*/
-  grid-template-columns: repeat(4, 10vmin);
-  grid-template-rows: repeat(3, 10vmin);
-  gap: 10vmin;
+  gap: 3vmin;
   margin-top: 1vmin;
-  margin-bottom: 20vmin;
+  margin-bottom: 1vmin;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-height: 1vh;
+  flex-wrap: wrap;
+  max-width: 50vw;
 }
 
 #board>img {
   border-radius: 10%;
   border: 0.1vmin solid fuchsia;
   background-color: fuchsia;
+  transition: transform 0.5s ease;
+}
+
+#board>img:hover {
+  transform: scale(1.2);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 25vw;
+  /* quarter of the viewport width for each side */
+  background: url('https://live.staticflickr.com/65535/53603982331_bd27a5fa59.jpg') no-repeat center center;
+  background-size: cover;
+  /* Cover the quarter viewport width */
+  z-index: -1;
+}
+
+body::before {
+  left: 0;
+  transform: scaleX(-1);
+  /* Mirrors the image on the left side */
+}
+
+body::after {
+  right: 0;
 }
