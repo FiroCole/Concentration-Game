@@ -27,11 +27,7 @@
 
 
 ## :computer: Technologies Used
-<<<<<<< HEAD
-=======
 
->>>>>>> fb8e6dd1f3233a7ebe083e88cb1b3709d9bcff81
-![Node](https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=node.js)
 ![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
 ![HTML5](https://img.shields.io/badge/-HTML5-05122A?style=flat&logo=html5)
 ![CSS3](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=css3)
